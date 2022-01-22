@@ -10,15 +10,14 @@ const columns = 10;
 const rows = 10;
 
 const newArray = generateArray(columns, rows);
-for (let i = 0; i < 10; i++) {
-  for (let j = 0; j < 10; j++) {
+for (let i = 0; i < columns; i++) {
+  for (let j = 0; j < rows; j++) {
     newArray[i][j] = Math.floor(Math.random(2) * 2);
   }
 }
-
-const nextGenArray = generateArray(columns, rows);
-
 console.table(newArray);
+
+const nextGenArray = generateArray(10, 10);
 
 function neighbourFinder(array, y, x) {
   let neighboursCount = 0;
@@ -35,21 +34,22 @@ function neighbourFinder(array, y, x) {
 }
 
 const neighbours = neighbourFinder(newArray, 1, 1);
-let isCellAlive;
 
 function isNeighbourAlive(array) {
-  for (let i = 0; i < array; i++) {
-    for (let j = 0; j < array; j++) {
-      isCellAlive = isCellAlive[i][j];
-      if (neighbours === 0 && neighbours === 3) {
+  let isCellAlive;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      isCellAlive = newArray[i][j];
+      if (isCellAlive < 1 && neighbours === 3) {
         nextGenArray[i][j] = 1;
-      } else if (neighbours >= 2 && neighbours < 4) {
+      } else if (neighbours >= 2 && neighbours < 4 && isCellAlive === 1) {
         nextGenArray[i][j] = 1;
       } else {
         nextGenArray[i][j] = 0;
       }
     }
   }
+  return nextGenArray;
 }
 
 console.table(isNeighbourAlive(newArray));
