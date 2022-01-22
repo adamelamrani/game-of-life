@@ -1,3 +1,5 @@
 function generateArray(columns) {
-  const gameArrayColumns = [];
+  const gameArrayColumns = columns;
+  return gameArrayColumns;
 }
+generateArray();
