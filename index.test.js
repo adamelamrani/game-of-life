@@ -1,6 +1,10 @@
-function generateArray(columns) {
-  const gameArrayColumns = columns;
-  return gameArrayColumns;
+function generateArray(columns, rows) {
+  const gameArray = new Array(columns);
+  for (let i = 0; i < gameArray.length; i++) {
+    gameArray[i] = new Array(rows);
+  }
+
+  return gameArray;
 }
 
 describe("Given a generateArray function", () => {
@@ -15,5 +19,15 @@ describe("Given a generateArray function", () => {
     });
   });
 
-  describe("When it reives");
+  describe("When it receives 1 column and 1 rows", () => {
+    test("Then it should return an array of 1 * 1", () => {
+      const testValue = 1;
+      const testValue2 = 1;
+      const expectedResult = [[]];
+
+      const expectedFunctionResult = generateArray(testValue, testValue2);
+
+      expect(expectedFunctionResult).toBe(expectedResult);
+    });
+  });
 });
