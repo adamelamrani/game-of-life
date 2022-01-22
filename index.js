@@ -1,5 +1,18 @@
-function generateArray(columns) {
-  const gameArrayColumns = columns;
-  return gameArrayColumns;
+function generateArray(columns, rows) {
+  const gameArray = new Array(columns);
+  for (let i = 0; i < gameArray.length; i++) {
+    gameArray[i] = new Array(rows);
+  }
+  return gameArray;
 }
-generateArray();
+
+const columns = 10;
+const rows = 10;
+const newArray = generateArray(columns, rows);
+for (let i = 0; i < 10; i++) {
+  for (let j = 0; j < 10; j++) {
+    newArray[i][j] = Math.floor(Math.random(2) * 3);
+  }
+}
+
+console.table(newArray);
