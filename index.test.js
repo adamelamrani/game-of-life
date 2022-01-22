@@ -23,11 +23,11 @@ describe("Given a generateArray function", () => {
     test("Then it should return an array of 1 * 1", () => {
       const testValue = 1;
       const testValue2 = 1;
-      const expectedResult = [[undefined]];
+      const expectedResult = [[]];
 
       const expectedFunctionResult = generateArray(testValue, testValue2);
 
-      expect(expectedFunctionResult).toBe(expectedResult);
+      expect(expectedFunctionResult).toStrictEqual(expectedResult);
     });
   });
 });
