@@ -23,7 +23,7 @@ describe("Given a generateArray function", () => {
     test("Then it should return an array of 1 * 1", () => {
       const testValue = 1;
       const testValue2 = 1;
-      const expectedResult = [[]];
+      const expectedResult = [[undefined]];
 
       const expectedFunctionResult = generateArray(testValue, testValue2);
 
