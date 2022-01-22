@@ -42,7 +42,10 @@ function isNeighbourAlive(array) {
       isCellAlive = newArray[i][j];
       if (isCellAlive < 1 && neighbours === 3) {
         nextGenArray[i][j] = 1;
-      } else if (neighbours >= 2 || (neighbours < 4 && isCellAlive === 1)) {
+      } else if (
+        (neighbours >= 2 && isCellAlive) ||
+        (neighbours < 4 && isCellAlive === 1)
+      ) {
         nextGenArray[i][j] = 1;
       } else {
         nextGenArray[i][j] = 0;
