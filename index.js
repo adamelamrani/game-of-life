@@ -6,12 +6,12 @@ function generateArray(columns, rows) {
   return gameArray;
 }
 
-const columns = 25;
-const rows = 25;
+const columns = 10;
+const rows = 10;
 
 const newArray = generateArray(columns, rows);
-for (let i = 0; i < 25; i++) {
-  for (let j = 0; j < 25; j++) {
+for (let i = 0; i < 10; i++) {
+  for (let j = 0; j < 10; j++) {
     newArray[i][j] = Math.floor(Math.random(2) * 2);
   }
 }
@@ -33,12 +33,14 @@ function neighbourFinder(array, y, x) {
 
   return neighboursCount;
 }
-const neighbours = neighbourFinder(array, y, x);
-console.log(neighbourFinder(newArray, 2, 5));
+
+const neighbours = neighbourFinder(newArray, 1, 1);
+let isCellAlive;
 
 function isNeighbourAlive(array) {
   for (let i = 0; i < array; i++) {
     for (let j = 0; j < array; j++) {
+      isCellAlive = isCellAlive[i][j];
       if (neighbours === 0 && neighbours === 3) {
         nextGenArray[i][j] = 1;
       } else if (neighbours >= 2 && neighbours < 4) {
@@ -49,3 +51,5 @@ function isNeighbourAlive(array) {
     }
   }
 }
+
+console.table(isNeighbourAlive(newArray));
