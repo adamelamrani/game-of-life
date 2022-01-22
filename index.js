@@ -8,12 +8,15 @@ function generateArray(columns, rows) {
 
 const columns = 10;
 const rows = 10;
+
 const newArray = generateArray(columns, rows);
 for (let i = 0; i < 10; i++) {
   for (let j = 0; j < 10; j++) {
     newArray[i][j] = Math.floor(Math.random(2) * 2);
   }
 }
+
+const nextGenArray = generateArray(columns, rows);
 
 console.table(newArray);
 
@@ -30,4 +33,23 @@ function neighbourFinder(array, y, x) {
 
   return neighboursCount;
 }
-console.table(neighbourFinder(newArray, 2, 5));
+
+const neighbours = neighbourFinder(newArray, 1, 1);
+let isCellAlive;
+
+function isNeighbourAlive(array) {
+  for (let i = 0; i < array; i++) {
+    for (let j = 0; j < array; j++) {
+      isCellAlive = isCellAlive[i][j];
+      if (neighbours === 0 && neighbours === 3) {
+        nextGenArray[i][j] = 1;
+      } else if (neighbours >= 2 && neighbours < 4) {
+        nextGenArray[i][j] = 1;
+      } else {
+        nextGenArray[i][j] = 0;
+      }
+    }
+  }
+}
+
+console.table(isNeighbourAlive(newArray));
